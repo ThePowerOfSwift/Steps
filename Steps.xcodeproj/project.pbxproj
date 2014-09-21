@@ -17,7 +17,6 @@
 		03FB8274198A044400D3E398 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB8273198A044400D3E398 /* TodayViewController.m */; };
 		03FB8276198A044400D3E398 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8275198A044400D3E398 /* MainInterface.storyboard */; };
 		03FB8279198A044400D3E398 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03FB826B198A044400D3E398 /* Widget.appex */; };
-		03FB8282198A05CE00D3E398 /* DayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB8281198A05CE00D3E398 /* DayCollectionViewCell.m */; };
 		03FB8284198A09E600D3E398 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB8283198A09E600D3E398 /* CoreMotion.framework */; };
 		03FB8286198A0B1C00D3E398 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB8285198A0B1C00D3E398 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -79,8 +78,6 @@
 		03FB8272198A044400D3E398 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		03FB8273198A044400D3E398 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		03FB8275198A044400D3E398 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		03FB8280198A05CE00D3E398 /* DayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayCollectionViewCell.h; sourceTree = "<group>"; };
-		03FB8281198A05CE00D3E398 /* DayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayCollectionViewCell.m; sourceTree = "<group>"; };
 		03FB8283198A09E600D3E398 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		03FB8285198A0B1C00D3E398 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -190,8 +187,6 @@
 				03FB8272198A044400D3E398 /* TodayViewController.h */,
 				03FB8273198A044400D3E398 /* TodayViewController.m */,
 				03FB8275198A044400D3E398 /* MainInterface.storyboard */,
-				03FB8280198A05CE00D3E398 /* DayCollectionViewCell.h */,
-				03FB8281198A05CE00D3E398 /* DayCollectionViewCell.m */,
 				03FB8270198A044400D3E398 /* Supporting Files */,
 			);
 			path = Widget;
@@ -274,6 +269,7 @@
 				TargetAttributes = {
 					03FB8240198A043B00D3E398 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 9BZNV2TE99;
 					};
 					03FB8256198A043B00D3E398 = {
 						CreatedOnToolsVersion = 6.0;
@@ -356,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03FB8274198A044400D3E398 /* TodayViewController.m in Sources */,
-				03FB8282198A05CE00D3E398 /* DayCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
