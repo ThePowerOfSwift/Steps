@@ -4,65 +4,67 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Today View Controller-->
+        <!--Steps Widget-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Widget" title="Steps Widget" id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Steps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RQx-Ui-AX6"/>
                         <viewControllerLayoutGuide type="bottom" id="bsB-yD-R6W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KwN-TY-zsK">
-                                <rect key="frame" x="50" y="75" width="255" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="X30-Re-Mvf"/>
-                                </constraints>
-                                <color key="trackTintColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
-                            </progressView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqm-yt-0Ll">
-                                <rect key="frame" x="50" y="0.0" width="130" height="76"/>
+                                <rect key="frame" x="0.0" y="1" width="160" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="A0U-xK-a99"/>
+                                    <constraint firstAttribute="height" constant="45" id="IHI-L4-XHe"/>
+                                    <constraint firstAttribute="width" constant="160" id="frA-hY-HNF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5T-Rm-Pw3">
-                                <rect key="frame" x="204" y="12" width="100" height="22"/>
+                                <rect key="frame" x="220" y="0.0" width="100" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="I1K-YR-XfT"/>
-                                    <constraint firstAttribute="width" constant="100" id="cwx-EL-kA5"/>
+                                    <constraint firstAttribute="width" constant="100" id="Y7n-ZN-3ZA"/>
+                                    <constraint firstAttribute="height" constant="22" id="goa-Wi-Wmn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tiz-aD-vzU">
-                                <rect key="frame" x="204" y="36" width="100" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                <rect key="frame" x="220" y="23" width="100" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KwN-TY-zsK">
+                                <rect key="frame" x="0.0" y="85" width="320" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="w7k-C5-RYs"/>
+                                </constraints>
+                                <color key="trackTintColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tiz-aD-vzU" firstAttribute="top" secondItem="q5T-Rm-Pw3" secondAttribute="bottom" constant="2" id="0PX-Sb-3ec"/>
-                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="trailing" secondItem="KwN-TY-zsK" secondAttribute="trailing" constant="-1" id="4o2-im-2BU"/>
-                            <constraint firstItem="vqm-yt-0Ll" firstAttribute="top" secondItem="RQx-Ui-AX6" secondAttribute="bottom" id="BJL-sZ-O1I"/>
-                            <constraint firstItem="KwN-TY-zsK" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="50" id="BgT-3N-n1j"/>
-                            <constraint firstItem="bsB-yD-R6W" firstAttribute="top" secondItem="KwN-TY-zsK" secondAttribute="bottom" constant="20" id="Ci2-ka-XHl"/>
-                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="height" secondItem="Tiz-aD-vzU" secondAttribute="height" id="I5H-vl-g86"/>
-                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="width" secondItem="Tiz-aD-vzU" secondAttribute="width" id="NfW-BO-FCR"/>
-                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="top" secondItem="RQx-Ui-AX6" secondAttribute="bottom" constant="12" id="RVj-qj-NW1"/>
-                            <constraint firstAttribute="trailing" secondItem="KwN-TY-zsK" secondAttribute="trailing" constant="15" id="SAE-lQ-hxA"/>
-                            <constraint firstItem="vqm-yt-0Ll" firstAttribute="leading" secondItem="KwN-TY-zsK" secondAttribute="leading" id="pdQ-gk-gbB"/>
-                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="trailing" secondItem="Tiz-aD-vzU" secondAttribute="trailing" id="usI-2y-PF4"/>
-                            <constraint firstItem="KwN-TY-zsK" firstAttribute="top" secondItem="vqm-yt-0Ll" secondAttribute="bottom" constant="-1" id="yzg-Uo-HgA"/>
+                            <constraint firstAttribute="centerX" secondItem="KwN-TY-zsK" secondAttribute="centerX" id="082-VG-mGb"/>
+                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="top" secondItem="RQx-Ui-AX6" secondAttribute="bottom" id="3ww-FY-tjB"/>
+                            <constraint firstAttribute="width" secondItem="KwN-TY-zsK" secondAttribute="width" id="C4q-kP-a3F"/>
+                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="height" secondItem="Tiz-aD-vzU" secondAttribute="height" id="VZS-Ho-Eey"/>
+                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="width" secondItem="Tiz-aD-vzU" secondAttribute="width" id="VeJ-Nu-yro"/>
+                            <constraint firstItem="bsB-yD-R6W" firstAttribute="top" secondItem="KwN-TY-zsK" secondAttribute="bottom" id="YBQ-BD-UBB"/>
+                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="trailing" secondItem="RQx-Ui-AX6" secondAttribute="trailing" id="aoZ-eI-RKg"/>
+                            <constraint firstAttribute="trailing" secondItem="Tiz-aD-vzU" secondAttribute="trailing" id="jgb-xj-TRC"/>
+                            <constraint firstItem="vqm-yt-0Ll" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="ogv-DP-8iE"/>
+                            <constraint firstItem="q5T-Rm-Pw3" firstAttribute="trailing" secondItem="Tiz-aD-vzU" secondAttribute="trailing" id="ssZ-O3-jAf"/>
+                            <constraint firstItem="Tiz-aD-vzU" firstAttribute="top" secondItem="q5T-Rm-Pw3" secondAttribute="bottom" constant="1" id="uew-LL-IES"/>
+                            <constraint firstItem="vqm-yt-0Ll" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="1" id="zqs-cg-6oK"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -70,22 +72,22 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="110"/>
+                    <size key="freeformSize" width="320" height="100"/>
                     <connections>
-                        <outlet property="floorCountLabel" destination="Tiz-aD-vzU" id="2Ya-Ro-em4"/>
-                        <outlet property="mileCountLabel" destination="q5T-Rm-Pw3" id="3wn-mt-4ws"/>
-                        <outlet property="stepCountLabel" destination="vqm-yt-0Ll" id="zwb-tU-fsc"/>
-                        <outlet property="todayProgressView" destination="KwN-TY-zsK" id="uFx-TL-p4m"/>
+                        <outlet property="distanceLabel" destination="q5T-Rm-Pw3" id="r53-Uu-FZ2"/>
+                        <outlet property="floorCountLabel" destination="Tiz-aD-vzU" id="6Dv-6U-x27"/>
+                        <outlet property="progressView" destination="KwN-TY-zsK" id="SPb-3a-g6A"/>
+                        <outlet property="stepCountLabel" destination="vqm-yt-0Ll" id="yFb-3V-BDj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="285"/>
+            <point key="canvasLocation" x="516" y="298"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina47"/>
     </simulatedMetricsContainer>
 </document>

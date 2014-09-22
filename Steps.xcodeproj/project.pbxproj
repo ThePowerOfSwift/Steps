@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03FB8247198A043B00D3E398 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB8246198A043B00D3E398 /* main.m */; };
-		03FB824A198A043B00D3E398 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB8249198A043B00D3E398 /* AppDelegate.m */; };
-		03FB824D198A043B00D3E398 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB824C198A043B00D3E398 /* ViewController.m */; };
-		03FB8250198A043B00D3E398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FB824E198A043B00D3E398 /* Main.storyboard */; };
+		03215D2319CFEB610084C4E0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8275198A044400D3E398 /* MainInterface.storyboard */; };
+		0383628019CFA0B40033C18C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383627F19CFA0B40033C18C /* TodayViewController.swift */; };
+		0383628619CFA8320033C18C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383628519CFA8320033C18C /* Extensions.swift */; };
+		03B5D97419D00CAF000F3426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5D97219D00CAF000F3426 /* AppDelegate.swift */; };
+		03B5D97519D00CAF000F3426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B5D97319D00CAF000F3426 /* ViewController.swift */; };
+		03B5D97619D00CE7000F3426 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8275198A044400D3E398 /* MainInterface.storyboard */; };
+		03B5D97819D01562000F3426 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B5D97719D01562000F3426 /* Launch Screen.xib */; };
+		03B5D97919D016A5000F3426 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383627F19CFA0B40033C18C /* TodayViewController.swift */; };
+		03B5D97A19D0181C000F3426 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383628519CFA8320033C18C /* Extensions.swift */; };
 		03FB8252198A043B00D3E398 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8251198A043B00D3E398 /* Images.xcassets */; };
 		03FB825E198A043B00D3E398 /* StepsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB825D198A043B00D3E398 /* StepsTests.m */; };
 		03FB826E198A044400D3E398 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB826D198A044400D3E398 /* NotificationCenter.framework */; };
-		03FB8274198A044400D3E398 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB8273198A044400D3E398 /* TodayViewController.m */; };
-		03FB8276198A044400D3E398 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8275198A044400D3E398 /* MainInterface.storyboard */; };
 		03FB8279198A044400D3E398 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03FB826B198A044400D3E398 /* Widget.appex */; };
 		03FB8284198A09E600D3E398 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB8283198A09E600D3E398 /* CoreMotion.framework */; };
 		03FB8286198A0B1C00D3E398 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB8285198A0B1C00D3E398 /* QuartzCore.framework */; };
@@ -60,14 +63,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0383627F19CFA0B40033C18C /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		0383628519CFA8320033C18C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03B5D97219D00CAF000F3426 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03B5D97319D00CAF000F3426 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03B5D97719D01562000F3426 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		03FB8241198A043B00D3E398 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB8245198A043B00D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03FB8246198A043B00D3E398 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		03FB8248198A043B00D3E398 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		03FB8249198A043B00D3E398 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		03FB824B198A043B00D3E398 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		03FB824C198A043B00D3E398 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		03FB824F198A043B00D3E398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03FB8251198A043B00D3E398 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03FB8257198A043B00D3E398 /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB825C198A043B00D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,8 +77,6 @@
 		03FB826B198A044400D3E398 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB826D198A044400D3E398 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		03FB8271198A044400D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03FB8272198A044400D3E398 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
-		03FB8273198A044400D3E398 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		03FB8275198A044400D3E398 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		03FB8283198A09E600D3E398 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		03FB8285198A0B1C00D3E398 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -134,11 +134,9 @@
 		03FB8243198A043B00D3E398 /* Steps */ = {
 			isa = PBXGroup;
 			children = (
-				03FB8248198A043B00D3E398 /* AppDelegate.h */,
-				03FB8249198A043B00D3E398 /* AppDelegate.m */,
-				03FB824B198A043B00D3E398 /* ViewController.h */,
-				03FB824C198A043B00D3E398 /* ViewController.m */,
-				03FB824E198A043B00D3E398 /* Main.storyboard */,
+				03B5D97219D00CAF000F3426 /* AppDelegate.swift */,
+				03B5D97319D00CAF000F3426 /* ViewController.swift */,
+				03B5D97719D01562000F3426 /* Launch Screen.xib */,
 				03FB8251198A043B00D3E398 /* Images.xcassets */,
 				03FB8244198A043B00D3E398 /* Supporting Files */,
 			);
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				03FB8245198A043B00D3E398 /* Info.plist */,
-				03FB8246198A043B00D3E398 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,8 +181,8 @@
 		03FB826F198A044400D3E398 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				03FB8272198A044400D3E398 /* TodayViewController.h */,
-				03FB8273198A044400D3E398 /* TodayViewController.m */,
+				0383627F19CFA0B40033C18C /* TodayViewController.swift */,
+				0383628519CFA8320033C18C /* Extensions.swift */,
 				03FB8275198A044400D3E398 /* MainInterface.storyboard */,
 				03FB8270198A044400D3E398 /* Supporting Files */,
 			);
@@ -306,7 +303,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FB8250198A043B00D3E398 /* Main.storyboard in Resources */,
+				03B5D97819D01562000F3426 /* Launch Screen.xib in Resources */,
+				03B5D97619D00CE7000F3426 /* MainInterface.storyboard in Resources */,
 				03FB8252198A043B00D3E398 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FB8276198A044400D3E398 /* MainInterface.storyboard in Resources */,
+				03215D2319CFEB610084C4E0 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,9 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FB824D198A043B00D3E398 /* ViewController.m in Sources */,
-				03FB824A198A043B00D3E398 /* AppDelegate.m in Sources */,
-				03FB8247198A043B00D3E398 /* main.m in Sources */,
+				03B5D97519D00CAF000F3426 /* ViewController.swift in Sources */,
+				03B5D97419D00CAF000F3426 /* AppDelegate.swift in Sources */,
+				03B5D97919D016A5000F3426 /* TodayViewController.swift in Sources */,
+				03B5D97A19D0181C000F3426 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +350,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FB8274198A044400D3E398 /* TodayViewController.m in Sources */,
+				0383628019CFA0B40033C18C /* TodayViewController.swift in Sources */,
+				0383628619CFA8320033C18C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,17 +374,6 @@
 			targetProxy = 03FB827A198A044400D3E398 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		03FB824E198A043B00D3E398 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03FB824F198A043B00D3E398 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		03FB825F198A043B00D3E398 /* Debug */ = {
@@ -467,10 +456,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Steps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -478,7 +469,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Steps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,6 +514,7 @@
 		03FB827D198A044400D3E398 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -533,12 +526,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		03FB827E198A044400D3E398 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Widget/Info.plist;
