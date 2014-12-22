@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  swift
+//  Steps
 //
-//  Created by Sachin on 9/21/14.
+//  Created by Sachin Patel on 9/21/14.
 //  Copyright (c) 2014 Sachin Patel. All rights reserved.
 //
 
@@ -14,9 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        var viewController = ViewController()
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
         return true
     }

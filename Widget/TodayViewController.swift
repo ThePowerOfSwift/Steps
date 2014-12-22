@@ -2,7 +2,7 @@
 //  TodayViewController.swift
 //  Steps
 //
-//  Created by Sachin on 9/21/14.
+//  Created by Sachin Patel on 9/21/14.
 //  Copyright (c) 2014 Sachin Patel. All rights reserved.
 //
 
@@ -13,43 +13,79 @@ import QuartzCore
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    enum UnitSystem {
-        case UnitSystemImperial
-        case UnitSystemMetric
-    }
+    // Interface
+    let widgetHeight = 78.0
+    @IBOutlet var stepCountLabel: UILabel!
+    @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var floorCountLabel: UILabel!
+    @IBOutlet var progressView: UIProgressView!
     
-    enum StepCountLevel: Double {
+    enum StepCountLevel: Float {
         case Low = 0.4
         case Medium = 0.8
         case High = 1.0
     }
     
-    let stepCountKey = "TodayViewStepCount"
-    let floorCountKey = "TodayViewFloorCount"
-    let distanceKey = "TodayViewDistance"
+    // User Defaults
+    var sharedDefaults: NSUserDefaults
+    var unitSystemType: UnitSystem? {
+        get {
+            var raw = sharedDefaults.integerForKey(UnitTypeKey)
+            return UnitSystem(rawValue: raw)?
+        }
+        set {
+            sharedDefaults.setInteger(newValue!.rawValue, forKey: UnitTypeKey)
+            updateInterface()
+        }
+    }
+    var unitDisplayType: UnitDisplay? {
+        get {
+            var raw = sharedDefaults.integerForKey(UnitDisplayKey)
+            return UnitDisplay(rawValue: raw)?
+        }
+        set {
+            sharedDefaults.setInteger(newValue!.rawValue, forKey: UnitDisplayKey)
+            updateInterface()
+        }
+    }
+    var userGoal: Float {
+        get {
+            return sharedDefaults.floatForKey(UserGoalKey)
+        }
+        set {
+            sharedDefaults.setFloat(newValue, forKey: UserGoalKey)
+            updateInterface()
+        }
+    }
+    var unitSystemWord: String {
+        switch (unitSystemType!) {
+        case .Imperial:
+            switch (unitDisplayType!) {
+                case .Short: return UnitSystemImperialWordShort
+                case .Long: return UnitSystemImperialWord
+            }
+        case .Metric:
+            switch (unitDisplayType!) {
+            case .Short: return UnitSystemMetricWordShort
+            case .Long: return UnitSystemMetricWord
+            }
+        }
+    }
     
-    let userGoal = 10_000.0
-    let widgetHeight = 78.0
-    
-    let distanceUnitWord = "mile"
-    let mileInMeters = 1609.344
-    
-    @IBOutlet var stepCountLabel: UILabel?
-    @IBOutlet var progressView: UIProgressView?
-    
-    @IBOutlet var vibrancyView: UIVisualEffectView?
-    @IBOutlet var distanceLabel: UILabel?
-    @IBOutlet var floorCountLabel: UILabel?
-    
+    // Pedometer
     var stepCount: Int
     var distance: Double
     var floorCount: Int
-    var pedometer: CMPedometer?
+    var pedometer: CMPedometer
+    
+    // MARK: - Initializers
     
     override init() {
         stepCount = 0
         distance = 0.0
         floorCount = 0
+        pedometer = CMPedometer()
+        sharedDefaults = NSUserDefaults(suiteName: defaultsSuiteName)!
         super.init()
         preferredContentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, CGFloat(widgetHeight))
     }
@@ -58,119 +94,158 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         stepCount = 0
         distance = 0.0
         floorCount = 0
+        pedometer = CMPedometer()
+        sharedDefaults = NSUserDefaults(suiteName: defaultsSuiteName)!
         super.init(coder: aDecoder)
         preferredContentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, CGFloat(widgetHeight))
     }
     
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set user defaults
+        if userGoal == 0 {
+            userGoal = 10_000
+        }
+        
+        // Progress view appearance
+        progressView.layer.cornerRadius = 8.0
+        progressView.layer.masksToBounds = true
     }
     
     override func viewWillAppear(animated: Bool) {
-        progressView!.layer.cornerRadius = 8.0
-        progressView!.layer.masksToBounds = true
+        super.viewWillAppear(animated)
         
         // Read from user defaults to show while updating data
-        stepCount = NSUserDefaults.standardUserDefaults().integerForKey(stepCountKey)
-        distance = NSUserDefaults.standardUserDefaults().doubleForKey(distanceKey)
-        floorCount = NSUserDefaults.standardUserDefaults().integerForKey(floorCountKey)
-        updateLabels()
-        beginUpdating()
+        stepCount = sharedDefaults.integerForKey(StepCountKey)
+        distance = sharedDefaults.doubleForKey(DistanceKey)
+        floorCount = sharedDefaults.integerForKey(FloorCountKey)
+        
+        // Update interface before
+        updateInterface()
+        updatePedometer()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        NSUserDefaults.standardUserDefaults().setInteger(stepCount, forKey: stepCountKey)
-        NSUserDefaults.standardUserDefaults().setDouble(distance, forKey: distanceKey)
-        NSUserDefaults.standardUserDefaults().setInteger(floorCount, forKey: floorCountKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        super.viewWillDisappear(animated)
+        
+        sharedDefaults.setInteger(stepCount, forKey: StepCountKey)
+        sharedDefaults.setDouble(distance, forKey: DistanceKey)
+        sharedDefaults.setInteger(floorCount, forKey: FloorCountKey)
+        sharedDefaults.synchronize()
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func beginUpdating () {
+    // MARK: - Widget
+    func updatePedometer () {
         // Ensure device has motion coprocessor
         if CMPedometer.isStepCountingAvailable() {
             
             // Get data from midnight to now
-            pedometer = CMPedometer()
-            pedometer?.queryPedometerDataFromDate(NSDate.midnight, toDate: NSDate(), withHandler: {
+            pedometer.queryPedometerDataFromDate(NSDate.midnight, toDate: NSDate(), withHandler: {
                 data, error in
                 
-                // Store data
-                self.stepCount = data.numberOfSteps.integerValue
-                if CMPedometer.isDistanceAvailable() {
-                    self.distance = data.distance.doubleValue / self.mileInMeters
-                }
-                if CMPedometer.isFloorCountingAvailable() {
-                    self.floorCount = data.floorsAscended.integerValue + data.floorsDescended.integerValue
-                }
-                self.updateLabels()
-                
-                // Update as user moves
-                self.pedometer?.startPedometerUpdatesFromDate(NSDate(), withHandler: {
-                    data, error in
-                    
-                    // Add to existing counts
-                    self.stepCount += data.numberOfSteps.integerValue
+                if data != nil {
+                    // Store data
+                    self.stepCount = data.numberOfSteps.integerValue
                     if CMPedometer.isDistanceAvailable() {
-                        self.distance += data.distance.doubleValue / self.mileInMeters
+                        self.distance = data.distance.doubleValue
                     }
                     if CMPedometer.isFloorCountingAvailable() {
-                        self.floorCount += data.floorsAscended.integerValue + data.floorsDescended.integerValue
+                        self.floorCount = data.floorsAscended.integerValue + data.floorsDescended.integerValue
                     }
-                    self.updateLabels()
+                    self.updateInterface()
+                }
+                
+                // Update as user moves
+                self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
+                    data, error in
+                    
+                    if data != nil {
+                        // Add to existing counts
+                        self.stepCount += data.numberOfSteps.integerValue
+                        if CMPedometer.isDistanceAvailable() {
+                            self.distance += data.distance.doubleValue
+                        }
+                        if CMPedometer.isFloorCountingAvailable() {
+                            self.floorCount += data.floorsAscended.integerValue + data.floorsDescended.integerValue
+                        }
+                        self.updateInterface()
+                    }
                 })
             })
         }
     }
     
-    func updateLabels () {
+    func updateInterface () {
         dispatch_async(dispatch_get_main_queue(), {
-            
             // Update step count label, format nicely
-            if self.stepCount < 10000 {
-                self.stepCountLabel!.text = "\(self.stepCount)"
+            if self.stepCount < 10_000 {
+                self.stepCountLabel.text = "\(self.stepCount)"
             } else {
                 var number = NSNumber(integer: self.stepCount)
                 var formatter = NSNumberFormatter()
                 formatter.numberStyle = .DecimalStyle
                 formatter.groupingSeparator = ","
-                self.stepCountLabel!.text = formatter.stringForObjectValue(number)
+                self.stepCountLabel.text = formatter.stringForObjectValue(number)
+            }
+        });
+        
+        // Update distance label if available
+        if CMPedometer.isDistanceAvailable() {
+            // Update mile count label
+            var convertedDistance = self.distance
+            switch self.unitSystemType! {
+                case .Imperial:
+                    convertedDistance /= mileInMeters
+                case .Metric:
+                    convertedDistance /= 1000
             }
             
-            // Update distance label if available
-            if CMPedometer.isDistanceAvailable() {
-                // Update mile count label
-                self.distanceLabel!.hidden = false
-                self.distanceLabel!.text = NSString(format: "%.2f %@%@", self.distance, self.distanceUnitWord, (self.distance != 1) ? "s" : "")
-            } else {
-                self.distanceLabel!.hidden = true
-            }
-            
-            // Update floor label if available
-            if CMPedometer.isFloorCountingAvailable() {
-                self.floorCountLabel!.hidden = false
-                self.floorCountLabel!.text = NSString(format: "%ld floor%@", self.floorCount, (self.distance != 1) ? "s" : "")
-            } else {
-                self.floorCountLabel!.hidden = true
-            }
-            
-            // Update progress indicator
-            var percent = Double(self.stepCount) / self.userGoal
-            self.progressView!.progress = Float(percent)
-            switch percent {
-                case 0...StepCountLevel.Low.toRaw():
-                    self.progressView!.progressTintColor = UIColor.appRedColor()
-                case StepCountLevel.Low.toRaw()...StepCountLevel.Medium.toRaw():
-                    self.progressView!.progressTintColor = UIColor.appYellowColor()
-                case StepCountLevel.Medium.toRaw()...StepCountLevel.High.toRaw():
-                    self.progressView!.progressTintColor = UIColor.appGreenColor()
-                default:
-                    self.progressView!.progressTintColor = UIColor.darkGrayColor()
-            }
-        })
+            var distanceExtension = (self.unitDisplayType == .Long && self.distance != 1) ? "s" : ""
+            dispatch_async(dispatch_get_main_queue(), {
+                self.distanceLabel.hidden = false
+                self.distanceLabel.text = NSString(format: "%.2f %@%@", convertedDistance, self.unitSystemWord, distanceExtension)
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.distanceLabel.hidden = true
+            });
+        }
+        
+        // Update floor label if available
+        if CMPedometer.isFloorCountingAvailable() {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.floorCountLabel.hidden = false
+                self.floorCountLabel.text = NSString(format: "%ld floor%@", self.floorCount, (self.floorCount != 1) ? "s" : "")
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.floorCountLabel.hidden = true
+            });
+        }
+        
+        // Update progress indicator
+        var percent = min(Float(self.stepCount) / Float(self.userGoal), 1.0)
+        self.progressView.setProgress(percent, animated: false)
+        switch percent {
+        case 0...0.3:
+            self.progressView.progressTintColor = UIColor.redColor()
+        case 0.3...0.8:
+            self.progressView.progressTintColor = UIColor.yellowColor()
+        case 0.8...1.0:
+            self.progressView.progressTintColor = UIColor.greenColor()
+        default:
+            self.progressView.progressTintColor = UIColor.greenColor()
+        }
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        // top, left, bottom, right
         return UIEdgeInsetsMake(15.0, 47.0, 15.0, 15.0)
     }
 }

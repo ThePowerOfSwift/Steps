@@ -2,7 +2,7 @@
 //  StepsTests.m
 //  StepsTests
 //
-//  Created by Sachin on 7/30/14.
+//  Created by Sachin Patel on 7/30/14.
 //  Copyright (c) 2014 Sachin Patel. All rights reserved.
 //
 
