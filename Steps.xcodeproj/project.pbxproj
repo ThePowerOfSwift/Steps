@@ -20,7 +20,6 @@
 		03B5D97919D016A5000F3426 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383627F19CFA0B40033C18C /* TodayViewController.swift */; };
 		03B5D97A19D0181C000F3426 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383628519CFA8320033C18C /* Extensions.swift */; };
 		03FB8252198A043B00D3E398 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03FB8251198A043B00D3E398 /* Images.xcassets */; };
-		03FB825E198A043B00D3E398 /* StepsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB825D198A043B00D3E398 /* StepsTests.m */; };
 		03FB826E198A044400D3E398 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB826D198A044400D3E398 /* NotificationCenter.framework */; };
 		03FB8279198A044400D3E398 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03FB826B198A044400D3E398 /* Widget.appex */; };
 		03FB8284198A09E600D3E398 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FB8283198A09E600D3E398 /* CoreMotion.framework */; };
@@ -28,13 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		03FB8258198A043B00D3E398 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03FB8239198A043B00D3E398 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 03FB8240198A043B00D3E398;
-			remoteInfo = Steps;
-		};
 		03FB8277198A044400D3E398 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03FB8239198A043B00D3E398 /* Project object */;
@@ -78,9 +70,6 @@
 		03FB8241198A043B00D3E398 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB8245198A043B00D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03FB8251198A043B00D3E398 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		03FB8257198A043B00D3E398 /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		03FB825C198A043B00D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03FB825D198A043B00D3E398 /* StepsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StepsTests.m; sourceTree = "<group>"; };
 		03FB826B198A044400D3E398 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB826D198A044400D3E398 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		03FB8271198A044400D3E398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,13 +80,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		03FB823E198A043B00D3E398 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		03FB8254198A043B00D3E398 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +113,6 @@
 			children = (
 				0313899719D2C23E00CEE0BB /* Shared */,
 				03FB8243198A043B00D3E398 /* Steps */,
-				03FB825A198A043B00D3E398 /* StepsTests */,
 				03FB826F198A044400D3E398 /* Widget */,
 				03FB826C198A044400D3E398 /* Frameworks */,
 				03FB8242198A043B00D3E398 /* Products */,
@@ -142,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				03FB8241198A043B00D3E398 /* Steps.app */,
-				03FB8257198A043B00D3E398 /* StepsTests.xctest */,
 				03FB826B198A044400D3E398 /* Widget.appex */,
 			);
 			name = Products;
@@ -166,23 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				03FB8245198A043B00D3E398 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		03FB825A198A043B00D3E398 /* StepsTests */ = {
-			isa = PBXGroup;
-			children = (
-				03FB825D198A043B00D3E398 /* StepsTests.m */,
-				03FB825B198A043B00D3E398 /* Supporting Files */,
-			);
-			path = StepsTests;
-			sourceTree = "<group>";
-		};
-		03FB825B198A043B00D3E398 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				03FB825C198A043B00D3E398 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,24 +202,6 @@
 			productReference = 03FB8241198A043B00D3E398 /* Steps.app */;
 			productType = "com.apple.product-type.application";
 		};
-		03FB8256198A043B00D3E398 /* StepsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 03FB8264198A043B00D3E398 /* Build configuration list for PBXNativeTarget "StepsTests" */;
-			buildPhases = (
-				03FB8253198A043B00D3E398 /* Sources */,
-				03FB8254198A043B00D3E398 /* Frameworks */,
-				03FB8255198A043B00D3E398 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				03FB8259198A043B00D3E398 /* PBXTargetDependency */,
-			);
-			name = StepsTests;
-			productName = StepsTests;
-			productReference = 03FB8257198A043B00D3E398 /* StepsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		03FB826A198A044400D3E398 /* Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03FB827C198A044400D3E398 /* Build configuration list for PBXNativeTarget "Widget" */;
@@ -292,10 +237,6 @@
 							};
 						};
 					};
-					03FB8256198A043B00D3E398 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 03FB8240198A043B00D3E398;
-					};
 					03FB826A198A044400D3E398 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 9BZNV2TE99;
@@ -321,7 +262,6 @@
 			projectRoot = "";
 			targets = (
 				03FB8240198A043B00D3E398 /* Steps */,
-				03FB8256198A043B00D3E398 /* StepsTests */,
 				03FB826A198A044400D3E398 /* Widget */,
 			);
 		};
@@ -336,13 +276,6 @@
 				0332C03C19D14AE600DEE2C4 /* AppInterface.storyboard in Resources */,
 				03B5D97619D00CE7000F3426 /* TodayInterface.storyboard in Resources */,
 				03FB8252198A043B00D3E398 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		03FB8255198A043B00D3E398 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +302,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		03FB8253198A043B00D3E398 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				03FB825E198A043B00D3E398 /* StepsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		03FB8267198A044400D3E398 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,11 +315,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		03FB8259198A043B00D3E398 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 03FB8240198A043B00D3E398 /* Steps */;
-			targetProxy = 03FB8258198A043B00D3E398 /* PBXContainerItemProxy */;
-		};
 		03FB8278198A044400D3E398 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03FB826A198A044400D3E398 /* Widget */;
@@ -517,40 +437,6 @@
 			};
 			name = Release;
 		};
-		03FB8265198A043B00D3E398 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Steps.app/Steps";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StepsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		03FB8266198A043B00D3E398 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Steps.app/Steps";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StepsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 		03FB827D198A044400D3E398 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -603,15 +489,6 @@
 			buildConfigurations = (
 				03FB8262198A043B00D3E398 /* Debug */,
 				03FB8263198A043B00D3E398 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		03FB8264198A043B00D3E398 /* Build configuration list for PBXNativeTarget "StepsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				03FB8265198A043B00D3E398 /* Debug */,
-				03FB8266198A043B00D3E398 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
