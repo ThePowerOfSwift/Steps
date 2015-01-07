@@ -20,11 +20,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var floorCountLabel: UILabel!
     @IBOutlet var progressView: UIProgressView!
     
-    enum StepCountLevel: Float {
-        case Low = 0.4
-        case Medium = 0.8
-        case High = 1.0
-    }
+    // Defines intervals for progress bar color
+    let StepCountIntervalLow = Float(0)...Float(0.4)
+    let StepCountIntervalMed = Float(0.4)...Float(0.8)
     
     // User Defaults
     var sharedDefaults: NSUserDefaults
@@ -201,10 +199,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             // Update mile count label
             var convertedDistance = self.distance
             switch self.unitSystemType! {
-                case .Imperial:
-                    convertedDistance /= mileInMeters
-                case .Metric:
-                    convertedDistance /= 1000
+            case .Imperial:
+                convertedDistance /= mileInMeters
+            case .Metric:
+                convertedDistance /= 1000
             }
             
             var distanceExtension = (self.unitDisplayType == .Long && self.distance != 1) ? "s" : ""
@@ -234,12 +232,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         var percent = min(Float(self.stepCount) / Float(self.userGoal), 1.0)
         self.progressView.setProgress(percent, animated: false)
         switch percent {
-        case 0...0.3:
+        case StepCountIntervalLow:
             self.progressView.progressTintColor = UIColor.redColor()
-        case 0.3...0.8:
+        case StepCountIntervalMed:
             self.progressView.progressTintColor = UIColor.yellowColor()
-        case 0.8...1.0:
-            self.progressView.progressTintColor = UIColor.greenColor()
         default:
             self.progressView.progressTintColor = UIColor.greenColor()
         }
