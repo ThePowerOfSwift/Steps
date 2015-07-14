@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     let descriptionHeight: CGFloat = 110.0
     
     // User Defaults
-    var sharedDefaults: NSUserDefaults!
+    var sharedDefaults: NSUserDefaults! = NSUserDefaults(suiteName: defaultsSuiteName)
     var unitSystemType: Int {
         get {
             return sharedDefaults.integerForKey(UnitTypeKey)
@@ -47,11 +47,6 @@ class ViewController: UIViewController {
         set {
             sharedDefaults.setFloat(newValue, forKey: UserGoalKey)
         }
-    }
-    
-    required override init () {
-        sharedDefaults = NSUserDefaults(suiteName: defaultsSuiteName)
-        super.init()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -116,7 +111,7 @@ class ViewController: UIViewController {
     func addWidget () {
         // Get widget view controller
         var storyboard = UIStoryboard(name: "TodayInterface", bundle: nil)
-        var widgetViewController = storyboard.instantiateViewControllerWithIdentifier("Widget") as TodayViewController
+        var widgetViewController = storyboard.instantiateViewControllerWithIdentifier("Widget") as! TodayViewController
         
         var widgetY = CGRectGetMaxY(topLine!.frame) + inset
         var widgetWidth = CGRectGetWidth(self.view.frame) - inset * 2

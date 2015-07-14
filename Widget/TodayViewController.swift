@@ -29,7 +29,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var unitSystemType: UnitSystem? {
         get {
             var raw = sharedDefaults.integerForKey(UnitTypeKey)
-            return UnitSystem(rawValue: raw)?
+            return UnitSystem(rawValue: raw)
         }
         set {
             sharedDefaults.setInteger(newValue!.rawValue, forKey: UnitTypeKey)
@@ -39,7 +39,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var unitDisplayType: UnitDisplay? {
         get {
             var raw = sharedDefaults.integerForKey(UnitDisplayKey)
-            return UnitDisplay(rawValue: raw)?
+            return UnitDisplay(rawValue: raw)
         }
         set {
             sharedDefaults.setInteger(newValue!.rawValue, forKey: UnitDisplayKey)
@@ -77,14 +77,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var pedometer: CMPedometer
     
     // MARK: - Initializers
-    
-    override init() {
+	
+ 	init() {
         stepCount = 0
         distance = 0.0
         floorCount = 0
         pedometer = CMPedometer()
         sharedDefaults = NSUserDefaults(suiteName: defaultsSuiteName)!
-        super.init()
+		super.init(nibName: nil, bundle: nil)
         preferredContentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, CGFloat(widgetHeight))
     }
     
@@ -208,7 +208,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             var distanceExtension = (self.unitDisplayType == .Long && self.distance != 1) ? "s" : ""
             dispatch_async(dispatch_get_main_queue(), {
                 self.distanceLabel.hidden = false
-                self.distanceLabel.text = NSString(format: "%.2f %@%@", convertedDistance, self.unitSystemWord, distanceExtension)
+                self.distanceLabel.text = NSString(format: "%.2f %@%@", convertedDistance, self.unitSystemWord, distanceExtension) as String
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), {
@@ -220,7 +220,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if CMPedometer.isFloorCountingAvailable() {
             dispatch_async(dispatch_get_main_queue(), {
                 self.floorCountLabel.hidden = false
-                self.floorCountLabel.text = NSString(format: "%ld floor%@", self.floorCount, (self.floorCount != 1) ? "s" : "")
+                self.floorCountLabel.text = NSString(format: "%ld floor%@", self.floorCount, (self.floorCount != 1) ? "s" : "") as String
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), {
